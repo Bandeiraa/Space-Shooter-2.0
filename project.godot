@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/player/ship.gd"
 }, {
+"base": "Node2D",
+"class": "ShipSpawnerManager",
+"language": "GDScript",
+"path": "res://scripts/player/spawner_manager.gd"
+}, {
 "base": "Node",
 "class": "ShipStats",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "BGM": "",
 "Background": "",
 "Ship": "",
+"ShipSpawnerManager": "",
 "ShipStats": ""
 }
 

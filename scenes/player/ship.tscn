@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/player/ship.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/stats.gd" type="Script" id=2]
+[ext_resource path="res://scripts/player/spawner_manager.gd" type="Script" id=3]
 
 [node name="ShipTemplate" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -10,10 +11,13 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="BoostTimer" type="Timer" parent="Stats"]
+one_shot = true
 
 [node name="PowerTimer" type="Timer" parent="Stats"]
+one_shot = true
 
 [node name="EvasivenessTimer" type="Timer" parent="Stats"]
+one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -26,6 +30,7 @@ script = ExtResource( 2 )
 [node name="Collision" type="CollisionShape2D" parent="."]
 
 [node name="SpawnerManager" type="Node2D" parent="."]
+script = ExtResource( 3 )
 
 [node name="SingleSpawner" type="Node2D" parent="SpawnerManager"]
 
@@ -37,4 +42,5 @@ script = ExtResource( 2 )
 
 [node name="Spawn2" type="Position2D" parent="SpawnerManager/MultiSpawner"]
 
+[connection signal="double_shot" from="Stats" to="SpawnerManager" method="change_ds_state"]
 [connection signal="area_entered" from="Hitbox" to="Stats" method="on_area_entered"]
