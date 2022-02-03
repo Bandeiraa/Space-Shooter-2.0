@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="ShipTemplate" type="KinematicBody2D"]
+
+[node name="Stats" type="Node" parent="."]
+
+[node name="BoostTimer" type="Timer" parent="Stats"]
+
+[node name="PowerTimer" type="Timer" parent="Stats"]
+
+[node name="EvasivenessTimer" type="Timer" parent="Stats"]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Hitbox"]
+
+[node name="InvulnerabilityTimer" type="Timer" parent="Hitbox"]
+
+[node name="Texture" type="Sprite" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+
+[node name="SpawnerManager" type="Node2D" parent="."]
+
+[node name="SingleSpawner" type="Node2D" parent="SpawnerManager"]
+
+[node name="Spawn" type="Position2D" parent="SpawnerManager/SingleSpawner"]
+
+[node name="MultiSpawner" type="Node2D" parent="SpawnerManager"]
+
+[node name="Spawn1" type="Position2D" parent="SpawnerManager/MultiSpawner"]
+
+[node name="Spawn2" type="Position2D" parent="SpawnerManager/MultiSpawner"]
