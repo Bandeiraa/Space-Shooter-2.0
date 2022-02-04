@@ -11,7 +11,7 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func move() -> void:
-	stats.velocity.x = input() * stats.base_speed
+	stats.velocity.x = input() * stats.speed
 	stats.velocity = move_and_slide(stats.velocity)
 	
 	
