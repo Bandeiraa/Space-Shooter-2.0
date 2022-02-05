@@ -6,12 +6,16 @@ signal double_shot
 onready var boost_timer: Timer = get_node("BoostTimer")
 onready var power_timer: Timer = get_node("PowerTimer")
 onready var evasiveness_timer: Timer = get_node("EvasivenessTimer")
+onready var invulnerability_timer: Timer = get_node(invulnerability_timer_ref)
 
 var velocity: Vector2
 
 var health: float = 5
 
 var attack_cooldown: float = 1.0
+var invulnerability_cooldown: float = 1.0
+
+var can_receive_damage: bool = true
 
 var shield: bool = false
 var shield_health: float = 0
@@ -23,16 +27,18 @@ var buff_speed: int = 60
 var base_speed: int = 120
 var speed: int = base_speed
 
+export(NodePath) var invulnerability_timer_ref
+
 func _ready() -> void:
 	for timer in get_children():
 		timer.connect("timeout", self, "on_timer_timeout", [timer])
 		
-	buff("boost", 5.0)
-		
 		
 func on_area_entered(_area) -> void:
-	#if area is EnemyProjectile:
+	#if area is EnemyProjectile and can_receive_damage:
 	#	update_health(area.damage)
+	#	can_receive_damage = false
+	#	invulnerability_timer.start(invulnerability_cooldown)
 		
 	#if area is PowerUp:
 	#	buff(area.buff, area.buff_value)
@@ -97,3 +103,7 @@ func on_timer_timeout(timer: Timer) -> void:
 			
 		"EvasivenessTimer":
 			speed = base_speed
+			
+			
+func on_invulnerability_timeout() -> void:
+	can_receive_damage = true

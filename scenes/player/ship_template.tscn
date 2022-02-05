@@ -42,6 +42,7 @@ script = ExtResource( 1 )
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 2 )
+invulnerability_timer_ref = NodePath("../Hitbox/InvulnerabilityTimer")
 
 [node name="BoostTimer" type="Timer" parent="Stats"]
 one_shot = true
@@ -68,6 +69,7 @@ anims/shield_animation = SubResource( 1 )
 [node name="Collision" type="CollisionShape2D" parent="Hitbox"]
 
 [node name="InvulnerabilityTimer" type="Timer" parent="Hitbox"]
+one_shot = true
 
 [node name="Texture" type="Sprite" parent="."]
 
@@ -91,4 +93,5 @@ one_shot = true
 
 [connection signal="double_shot" from="Stats" to="SpawnerManager" method="change_ds_state"]
 [connection signal="area_entered" from="Hitbox" to="Stats" method="on_area_entered"]
+[connection signal="timeout" from="Hitbox/InvulnerabilityTimer" to="Stats" method="on_invulnerability_timeout"]
 [connection signal="timeout" from="SpawnerManager/AttackCooldown" to="SpawnerManager" method="on_attack_cooldown_timeout"]
