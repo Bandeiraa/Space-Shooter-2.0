@@ -27,6 +27,8 @@ func _ready() -> void:
 	for timer in get_children():
 		timer.connect("timeout", self, "on_timer_timeout", [timer])
 		
+	buff("boost", 5.0)
+		
 		
 func on_area_entered(_area) -> void:
 	#if area is EnemyProjectile:

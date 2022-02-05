@@ -71,10 +71,9 @@ anims/shield_animation = SubResource( 1 )
 
 [node name="Texture" type="Sprite" parent="."]
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-
 [node name="SpawnerManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
+stats_ref = NodePath("../Stats")
 
 [node name="SingleSpawner" type="Node2D" parent="SpawnerManager"]
 
@@ -87,5 +86,9 @@ visible = false
 
 [node name="Spawn2" type="Position2D" parent="SpawnerManager/MultiSpawner"]
 
+[node name="AttackCooldown" type="Timer" parent="SpawnerManager"]
+one_shot = true
+
 [connection signal="double_shot" from="Stats" to="SpawnerManager" method="change_ds_state"]
 [connection signal="area_entered" from="Hitbox" to="Stats" method="on_area_entered"]
+[connection signal="timeout" from="SpawnerManager/AttackCooldown" to="SpawnerManager" method="on_attack_cooldown_timeout"]
