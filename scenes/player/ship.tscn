@@ -1,8 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/player/ship.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/stats.gd" type="Script" id=2]
 [ext_resource path="res://scripts/player/spawner_manager.gd" type="Script" id=3]
+[ext_resource path="res://scripts/player/shield.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "shield_animation"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
 
 [node name="ShipTemplate" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -18,6 +51,17 @@ one_shot = true
 
 [node name="EvasivenessTimer" type="Timer" parent="Stats"]
 one_shot = true
+
+[node name="Shield" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+z_index = 1
+script = ExtResource( 4 )
+stats_ref = NodePath("../Stats")
+
+[node name="Animation" type="AnimationPlayer" parent="Shield"]
+autoplay = "shield_animation"
+anims/RESET = SubResource( 2 )
+anims/shield_animation = SubResource( 1 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -37,6 +81,7 @@ script = ExtResource( 3 )
 [node name="Spawn" type="Position2D" parent="SpawnerManager/SingleSpawner"]
 
 [node name="MultiSpawner" type="Node2D" parent="SpawnerManager"]
+visible = false
 
 [node name="Spawn1" type="Position2D" parent="SpawnerManager/MultiSpawner"]
 

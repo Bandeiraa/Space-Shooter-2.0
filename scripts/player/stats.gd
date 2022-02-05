@@ -13,8 +13,8 @@ var health: float = 5
 
 var attack_cooldown: float = 1.0
 
-var shield: bool = true
-var shield_health: float = 3
+var shield: bool = false
+var shield_health: float = 0
 
 var ult_bar_value: float = 0
 var max_ult_bar_value: float = 100
@@ -27,14 +27,9 @@ func _ready() -> void:
 	for timer in get_children():
 		timer.connect("timeout", self, "on_timer_timeout", [timer])
 		
-	update_health(4)
-	buff("evasiveness", 7.0)
-	yield(get_tree().create_timer(2.0), "timeout")
-	buff("boost", 7.0)
-	
-	
+		
 func on_area_entered(_area) -> void:
-	#if area is Enemy:
+	#if area is EnemyProjectile:
 	#	update_health(area.damage)
 		
 	#if area is PowerUp:
