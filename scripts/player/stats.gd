@@ -23,8 +23,8 @@ var shield_health: float = 0
 var ult_bar_value: float = 0
 var max_ult_bar_value: float = 100
 
-var buff_speed: int = 60
-var base_speed: int = 120
+var buff_speed: int = 90
+var base_speed: int = 180
 var speed: int = base_speed
 
 export(NodePath) var invulnerability_timer_ref

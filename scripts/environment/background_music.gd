@@ -1,5 +1,5 @@
 extends AudioStreamPlayer
-class_name BGM
+class_name BackgroundMusic
 
 var sound_list: Dictionary = {
 	"Between Worlds":"res://assets/background_music/between_worlds.ogg",

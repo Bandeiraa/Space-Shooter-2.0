@@ -9,15 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "AudioStreamPlayer",
-"class": "BGM",
-"language": "GDScript",
-"path": "res://scripts/environment/background_music.gd"
-}, {
 "base": "ParallaxBackground",
 "class": "Background",
 "language": "GDScript",
 "path": "res://scripts/environment/background.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "BackgroundMusic",
+"language": "GDScript",
+"path": "res://scripts/environment/background_music.gd"
+}, {
+"base": "Node2D",
+"class": "GameLevel",
+"language": "GDScript",
+"path": "res://scripts/management/game_level.gd"
+}, {
+"base": "CanvasLayer",
+"class": "ScreenTransition",
+"language": "GDScript",
+"path": "res://scripts/management/screen_transition.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Ship",
@@ -35,8 +45,10 @@ _global_script_classes=[ {
 "path": "res://scripts/player/stats.gd"
 } ]
 _global_script_class_icons={
-"BGM": "",
 "Background": "",
+"BackgroundMusic": "",
+"GameLevel": "",
+"ScreenTransition": "",
 "Ship": "",
 "ShipSpawnerManager": "",
 "ShipStats": ""
@@ -49,7 +61,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-BackgroundMusic="*res://scenes/environment/background_music.tscn"
+BGM="*res://scenes/environment/background_music.tscn"
+Transition="*res://scenes/management/screen_transition.tscn"
 
 [display]
 
