@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/projectile/projectile_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/player/shots/2.png" type="Texture" id=2]
+[ext_resource path="res://scripts/miscellaneous/ally_projectile.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 9 )
+
+[node name="RedFalconProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+speed = 5
+damage = 1
+direction = -1
+
+[node name="Collision" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="Notifier" parent="." index="2"]
+position = Vector2( 4.17233e-07, 8.9407e-08 )
+scale = Vector2( 0.8, 0.9 )

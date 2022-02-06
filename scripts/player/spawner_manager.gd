@@ -12,6 +12,7 @@ var double_shot: bool = false
 var can_attack: bool = true
 
 export(NodePath) var stats_ref
+export(PackedScene) var projectile
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and can_attack:
@@ -27,8 +28,10 @@ func _physics_process(_delta: float) -> void:
 		spawn_projectile(single_spawner.get_node("Spawn"))
 		
 		
-func spawn_projectile(_spawner: Position2D) -> void:
-	pass
+func spawn_projectile(spawner: Position2D) -> void:
+	var projectile_instance: Area2D = projectile.instance()
+	projectile_instance.global_position = spawner.global_position
+	get_tree().root.call_deferred("add_child", projectile_instance)
 	
 	
 func change_ds_state(new_state: bool) -> void:
