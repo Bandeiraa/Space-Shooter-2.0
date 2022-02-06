@@ -2,11 +2,11 @@
 
 [ext_resource path="res://scenes/environment/background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/management/game_level.gd" type="Script" id=2]
-[ext_resource path="res://scenes/player/red_falcon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/player/green_wing.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/player/sun_striker.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/player/spike_bug.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/player/red_wing.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ship/red_falcon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ship/green_wing.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ship/sun_striker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ship/spike_bug.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ship/red_wing.tscn" type="PackedScene" id=7]
 
 [node name="GameLevel" type="Node2D" groups=["game_level"]]
 script = ExtResource( 2 )

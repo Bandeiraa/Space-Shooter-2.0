@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1.png-8820b4237b642da2b317182ea961c85a.stex"
+path="res://.import/sun_striker.png-6ca199ac4b8f4977436788a29edcc48e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/shots/1.png"
-dest_files=[ "res://.import/1.png-8820b4237b642da2b317182ea961c85a.stex" ]
+source_file="res://assets/player/ship/sun_striker.png"
+dest_files=[ "res://.import/sun_striker.png-6ca199ac4b8f4977436788a29edcc48e.stex" ]
 
 [params]
 

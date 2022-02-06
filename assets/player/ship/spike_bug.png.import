@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1.png-6948024e99ba7bfd8c6d818559ec1a7c.stex"
+path="res://.import/spike_bug.png-21e59cf73b86d57fc5e147a235168f9f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/ships/1.png"
-dest_files=[ "res://.import/1.png-6948024e99ba7bfd8c6d818559ec1a7c.stex" ]
+source_file="res://assets/player/ship/spike_bug.png"
+dest_files=[ "res://.import/spike_bug.png-21e59cf73b86d57fc5e147a235168f9f.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2.png-677ac2931a464077822ee63a25a03de0.stex"
+path="res://.import/red_wing_projectile.png-6ecbe73d24d63d47a58de51a9c9d7181.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/shots/2.png"
-dest_files=[ "res://.import/2.png-677ac2931a464077822ee63a25a03de0.stex" ]
+source_file="res://assets/player/shot/red_wing_projectile.png"
+dest_files=[ "res://.import/red_wing_projectile.png-6ecbe73d24d63d47a58de51a9c9d7181.stex" ]
 
 [params]
 

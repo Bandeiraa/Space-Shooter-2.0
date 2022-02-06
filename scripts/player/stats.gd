@@ -34,17 +34,18 @@ func _ready() -> void:
 		timer.connect("timeout", self, "on_timer_timeout", [timer])
 		
 		
-func on_area_entered(_area) -> void:
+func on_area_entered(area) -> void:
 	#if area is EnemyProjectile and can_receive_damage:
 	#	update_health(area.damage)
 	#	can_receive_damage = false
 	#	invulnerability_timer.start(invulnerability_cooldown)
+	#	area.kill()
 		
-	#if area is PowerUp:
-	#	buff(area.buff, area.buff_value)
-	pass
-	
-	
+	if area is PowerUp:
+		buff(area.buff, area.buff_value)
+		area.kill()
+		
+		
 func update_health(damage: int) -> void:
 	if not verify_shield(damage):
 		if shield_health <= 0:

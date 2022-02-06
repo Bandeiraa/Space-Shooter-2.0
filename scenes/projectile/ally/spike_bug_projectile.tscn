@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/projectile/projectile_template.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/player/shots/1.png" type="Texture" id=2]
-[ext_resource path="res://scripts/miscellaneous/ally_projectile.gd" type="Script" id=3]
+[ext_resource path="res://assets/player/shot/spike_bug_projectile.png" type="Texture" id=2]
+[ext_resource path="res://scripts/miscellaneous/projectile/ally_projectile.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 11 )

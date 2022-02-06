@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/3.png-2e1c23bfb5ff06a808cbdb96fafdd625.stex"
+path="res://.import/green_wing.png-cb4b5c8eef7ce38bf57d62de9ee846ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/shots/3.png"
-dest_files=[ "res://.import/3.png-2e1c23bfb5ff06a808cbdb96fafdd625.stex" ]
+source_file="res://assets/player/ship/green_wing.png"
+dest_files=[ "res://.import/green_wing.png-cb4b5c8eef7ce38bf57d62de9ee846ab.stex" ]
 
 [params]
 
