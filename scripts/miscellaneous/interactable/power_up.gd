@@ -13,7 +13,7 @@ func _ready() -> void:
 		buff_value = get_random_value()
 		return
 		
-	buff_value = randi() % max_value + min_value
+	buff_value = randi() % int(max_value + min_value)
 	
 	
 func get_random_value() -> float:

@@ -1,0 +1,13 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/management/spawner/spawner_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interactable/collectable/evasiveness.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/interactable/collectable/boost.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interactable/collectable/power.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interactable/collectable/recharge.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/interactable/collectable/shield.tscn" type="PackedScene" id=6]
+
+[node name="PowerUpSpawner" instance=ExtResource( 1 )]
+objects_list = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+initial_cooldown = 1.0
+spawner_cooldown = 1.0
