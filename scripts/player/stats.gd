@@ -27,6 +27,9 @@ var buff_speed: int = 90
 var base_speed: int = 180
 var speed: int = base_speed
 
+var gold: int = 0
+var score: int = 0
+
 export(NodePath) var invulnerability_timer_ref
 
 func _ready() -> void:
@@ -43,6 +46,10 @@ func on_area_entered(area) -> void:
 		
 	if area is PowerUp:
 		buff(area.buff, area.buff_value)
+		area.kill()
+		
+	if area is Gem:
+		update_gold(area.value)
 		area.kill()
 		
 		
@@ -94,6 +101,10 @@ func buff(buff_type: String, buff_value: float) -> void:
 			ult_bar_value = max_ult_bar_value
 			
 			
+func update_gold(value: int) -> void:
+	gold += value
+	
+	
 func on_timer_timeout(timer: Timer) -> void:
 	match timer.name:
 		"BoostTimer":

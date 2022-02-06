@@ -1,6 +1,9 @@
 extends Area2D
 class_name InteractableTemplate
 
+onready var sprite: Sprite = get_node("Texture")
+onready var animation: AnimationPlayer = get_node("Animation")
+
 var direction = 1
 
 export(int) var speed

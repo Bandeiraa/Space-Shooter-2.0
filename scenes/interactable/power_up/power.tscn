@@ -1,34 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/interactable/interactable_template.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/item/power_up/boost.png" type="Texture" id=2]
+[ext_resource path="res://assets/item/power_up/power.png" type="Texture" id=2]
 [ext_resource path="res://scripts/miscellaneous/interactable/power_up.gd" type="Script" id=3]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 24, 19 )
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-} ]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12, 10 )
 
-[node name="Boost" instance=ExtResource( 1 )]
+[node name="Power" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 speed = 3
-buff = "boost"
+buff = "power"
 min_value = 5.0
 max_value = 15.0
 
 [node name="Texture" parent="." index="0"]
-frames = SubResource( 2 )
-animation = "idle"
+texture = ExtResource( 2 )
 
 [node name="Collision" parent="." index="1"]
 visible = false

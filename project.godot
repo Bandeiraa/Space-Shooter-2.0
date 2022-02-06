@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/management/game_level.gd"
 }, {
+"base": "InteractableTemplate",
+"class": "Gem",
+"language": "GDScript",
+"path": "res://scripts/miscellaneous/interactable/gem.gd"
+}, {
 "base": "Area2D",
 "class": "InteractableTemplate",
 "language": "GDScript",
@@ -69,6 +74,7 @@ _global_script_class_icons={
 "Background": "",
 "BackgroundMusic": "",
 "GameLevel": "",
+"Gem": "",
 "InteractableTemplate": "",
 "PowerUp": "",
 "ProjectileTemplate": "",
