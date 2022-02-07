@@ -52,10 +52,14 @@ func on_area_entered(area) -> void:
 		update_gold(area.value)
 		area.kill()
 		
+	if area is Crate:
+		update_health(area.damage)
+		area.kill()
+		
 		
 func update_health(damage: int) -> void:
 	if not verify_shield(damage):
-		if shield_health <= 0:
+		if shield_health < 0:
 			health -= (shield_health * -1)
 		else:
 			health -= damage

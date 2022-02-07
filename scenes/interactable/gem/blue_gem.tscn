@@ -39,7 +39,7 @@ tracks/0/keys = {
 
 [node name="BlueGem" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-speed = 3
+speed = 2
 min_value = 1
 max_value = 5
 
