@@ -13,10 +13,14 @@ script = ExtResource( 3 )
 damage = 3
 
 [node name="Collision" parent="." index="0"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Texture" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="Notifier" parent="." index="2"]
+visible = false
 
 [node name="ExplosionTimer" type="Timer" parent="." index="3"]
 wait_time = 2.0

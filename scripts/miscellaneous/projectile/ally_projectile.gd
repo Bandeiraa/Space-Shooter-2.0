@@ -26,6 +26,7 @@ func kill() -> void:
 	#call explosion
 	bomb_special_attack()
 	ball_special_attack()
+	bubble_special_attack()
 	queue_free()
 	
 	
@@ -44,3 +45,10 @@ func ball_special_attack() -> void:
 			ball_instance.direction = ball_direction
 			ball_instance.global_position = global_position
 			get_tree().root.call_deferred("add_child", ball_instance)
+			
+			
+func bubble_special_attack() -> void:
+	if bubble_attack:
+		var bubble_instance: Area2D = bubble_scene.instance()
+		bubble_instance.global_position = global_position
+		get_tree().root.call_deferred("add_child", bubble_instance)
