@@ -2,6 +2,7 @@ extends Node
 class_name ShipStats
 
 signal double_shot
+signal attack_buff
 
 onready var boost_timer: Timer = get_node("BoostTimer")
 onready var power_timer: Timer = get_node("PowerTimer")
@@ -39,7 +40,7 @@ func _ready() -> void:
 		
 func on_area_entered(area) -> void:
 	#if area is EnemyProjectile and can_receive_damage:
-	#	update_health(area.damage)
+	#	damage_manager(area.damage)
 	#	can_receive_damage = false
 	#	invulnerability_timer.start(invulnerability_cooldown)
 	#	area.kill()
@@ -53,33 +54,38 @@ func on_area_entered(area) -> void:
 		area.kill()
 		
 	if area is Crate:
-		update_health(area.damage)
+		damage_manager(area.damage)
+		area.kill()
+		
+	if area is Miscellaneous:
+		miscellaneous_buff(area)
 		area.kill()
 		
 		
-func update_health(damage: int) -> void:
-	if not verify_shield(damage):
-		if shield_health < 0:
-			health -= (shield_health * -1)
-		else:
-			health -= damage
-			
-		if health <= 0:
-			print("Kill")
-			
-		shield_health = 0
-		
-		
-func verify_shield(damage: int) -> bool:
+func damage_manager(damage: int) -> void:
 	if shield:
-		shield_health -= damage
-		if shield_health <= 0:
-			shield = false
-			return shield
-			
-	return shield
-	
-	
+		update_shield(damage)
+	elif not shield:
+		update_health(damage)
+		
+	if health <= 0:
+		print("Kill")
+		
+		
+func update_health(damage):
+	if shield_health < 0:
+		health -= (shield_health * -1)
+		shield_health = 0
+	else:
+		health -= damage
+		
+		
+func update_shield(damage: int) -> void:
+	shield_health -= damage
+	if shield_health <= 0:
+		shield = false
+		
+		
 func buff(buff_type: String, buff_value: float) -> void:
 	match buff_type:
 		"shield":
@@ -107,6 +113,10 @@ func buff(buff_type: String, buff_value: float) -> void:
 			
 func update_gold(value: int) -> void:
 	gold += value
+	
+	
+func miscellaneous_buff(area) -> void:
+	emit_signal("attack_buff", area.buff_name, area.buff_value)
 	
 	
 func on_timer_timeout(timer: Timer) -> void:

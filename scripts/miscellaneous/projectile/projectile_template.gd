@@ -10,7 +10,7 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func on_screen_exited() -> void:
-	kill()
+	queue_free()
 	
 	
 func kill() -> void:

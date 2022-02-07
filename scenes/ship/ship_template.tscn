@@ -145,6 +145,7 @@ autoplay = "show_ship"
 anims/RESET = SubResource( 3 )
 anims/show_ship = SubResource( 4 )
 
+[connection signal="attack_buff" from="Stats" to="SpawnerManager" method="attack_buff"]
 [connection signal="double_shot" from="Stats" to="SpawnerManager" method="change_ds_state"]
 [connection signal="area_entered" from="Hitbox" to="Stats" method="on_area_entered"]
 [connection signal="timeout" from="Hitbox/InvulnerabilityTimer" to="Stats" method="on_invulnerability_timeout"]

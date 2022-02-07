@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/environment/background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/management/game_level.gd" type="Script" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://scenes/management/spawner/power_up_spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/management/spawner/gem_spawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/management/spawner/crate_spawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/management/spawner/miscellaneous_spawner.tscn" type="PackedScene" id=11]
 
 [node name="GameLevel" type="Node2D" groups=["game_level"]]
 script = ExtResource( 2 )
 initial_ship_position = Vector2( 320, 440 )
 ship_list = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 7 ) ]
-spawner_list = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+spawner_list = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
 [node name="Background" parent="." instance=ExtResource( 1 )]

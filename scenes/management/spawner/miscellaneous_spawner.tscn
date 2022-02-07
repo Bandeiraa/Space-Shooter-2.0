@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/interactable/miscellaneous/bomb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interactable/miscellaneous/bubble.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/management/spawner/spawner_template.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interactable/miscellaneous/ball.tscn" type="PackedScene" id=4]
+
+[node name="MiscellaneousSpawner" instance=ExtResource( 3 )]
+objects_list = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ]
+initial_cooldown = 1.0
+spawner_cooldown = 1.0
