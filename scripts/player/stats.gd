@@ -11,8 +11,8 @@ onready var invulnerability_timer: Timer = get_node(invulnerability_timer_ref)
 
 var velocity: Vector2
 
-var health: float = 5
-var initial_health: float = 5
+var health: float = 100
+var initial_health: float = 100
 
 var attack_cooldown: float = 1.0
 var invulnerability_cooldown: float = 1.0
@@ -73,19 +73,21 @@ func damage_manager(damage: int) -> void:
 		
 	if health <= 0:
 		lives -= 1
-		get_tree().call_group("interface", "update_lives_count")
+		get_tree().call_group("interface", "update_life_count")
 		health = initial_health
 		
 	if lives == 0:
 		print("game over")
 		
 		
-func update_health(damage):
+func update_health(damage: int):
 	if shield_health < 0:
 		health -= (shield_health * -1)
+		get_tree().call_group("interface", "update_health", shield_health * -1)
 		shield_health = 0
 	else:
 		health -= damage
+		get_tree().call_group("interface", "update_health", damage)
 		
 		
 func update_shield(damage: int) -> void:
