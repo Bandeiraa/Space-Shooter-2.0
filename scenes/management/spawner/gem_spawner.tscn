@@ -9,4 +9,4 @@
 [node name="GemSpawner" instance=ExtResource( 1 )]
 objects_list = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ) ]
 initial_cooldown = 5.0
-spawner_cooldown = 10.0
+spawner_cooldown = 8.0

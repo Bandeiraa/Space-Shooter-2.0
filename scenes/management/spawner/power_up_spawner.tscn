@@ -9,5 +9,5 @@
 
 [node name="PowerUpSpawner" instance=ExtResource( 1 )]
 objects_list = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
-initial_cooldown = 15.0
-spawner_cooldown = 30.0
+initial_cooldown = 20.0
+spawner_cooldown = 32.0

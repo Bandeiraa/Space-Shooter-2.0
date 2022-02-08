@@ -7,5 +7,5 @@
 
 [node name="MiscellaneousSpawner" instance=ExtResource( 3 )]
 objects_list = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ]
-initial_cooldown = 1.0
-spawner_cooldown = 1.0
+initial_cooldown = 15.0
+spawner_cooldown = 24.0

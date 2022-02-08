@@ -6,4 +6,4 @@
 [node name="CrateSpawner" instance=ExtResource( 1 )]
 objects_list = [ ExtResource( 2 ) ]
 initial_cooldown = 10.0
-spawner_cooldown = 20.0
+spawner_cooldown = 16.0

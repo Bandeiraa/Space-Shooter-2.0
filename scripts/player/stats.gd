@@ -119,6 +119,7 @@ func buff(buff_type: String, buff_value: float) -> void:
 				
 		"recharge":
 			ult_bar_value = max_ult_bar_value
+			get_tree().call_group("interface", "update_energy", ult_bar_value)
 			
 			
 func update_gold(value: int) -> void:
