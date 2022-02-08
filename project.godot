@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/environment/effect/effect_template.gd"
 }, {
+"base": "Area2D",
+"class": "EnemyMiscellaneous",
+"language": "GDScript",
+"path": "res://scripts/enemy/enemy_miscellaneous_template.gd"
+}, {
 "base": "Node2D",
 "class": "GameLevel",
 "language": "GDScript",
@@ -108,6 +113,7 @@ _global_script_class_icons={
 "BubbleProjectile": "",
 "Crate": "",
 "EffectTemplate": "",
+"EnemyMiscellaneous": "",
 "GameLevel": "",
 "Gem": "",
 "InteractableTemplate": "",
