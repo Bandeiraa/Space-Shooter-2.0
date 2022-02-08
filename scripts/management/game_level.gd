@@ -1,6 +1,8 @@
 extends Node2D
 class_name GameLevel
 
+onready var interface: CanvasLayer = get_node("Interface")
+
 export(Vector2) var initial_ship_position
 
 export(Array, PackedScene) var ship_list
@@ -8,7 +10,7 @@ export(Array, PackedScene) var spawner_list
 
 func start() -> void:
 	get_random_ship()
-	
+	interface.start()
 	for spawner in spawner_list:
 		instance_spawner(spawner)
 		

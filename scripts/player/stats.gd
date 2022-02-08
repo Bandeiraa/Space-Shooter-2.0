@@ -12,6 +12,7 @@ onready var invulnerability_timer: Timer = get_node(invulnerability_timer_ref)
 var velocity: Vector2
 
 var health: float = 5
+var initial_health: float = 5
 
 var attack_cooldown: float = 1.0
 var invulnerability_cooldown: float = 1.0
@@ -30,6 +31,8 @@ var speed: int = base_speed
 
 var gold: int = 0
 var score: int = 0
+
+var lives: int = 3
 
 export(NodePath) var invulnerability_timer_ref
 
@@ -69,7 +72,12 @@ func damage_manager(damage: int) -> void:
 		update_health(damage)
 		
 	if health <= 0:
-		print("Kill")
+		lives -= 1
+		get_tree().call_group("interface", "update_lives_count")
+		health = initial_health
+		
+	if lives == 0:
+		print("game over")
 		
 		
 func update_health(damage):
