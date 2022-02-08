@@ -8,7 +8,7 @@ export(int) var speed
 export(int) var damage
 
 func _physics_process(_delta: float) -> void:
-	if enemy_ref.alive:
+	if enemy_ref != null and enemy_ref.alive:
 		var enemy_position: Vector2 = enemy_ref.global_position
 		var direction: Vector2 = (enemy_position - global_position).normalized()
 		translate(direction * speed)

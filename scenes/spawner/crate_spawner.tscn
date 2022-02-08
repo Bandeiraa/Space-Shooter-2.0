@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/management/spawner/spawner_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/spawner/spawner_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interactable/miscellaneous/crate.tscn" type="PackedScene" id=2]
 
 [node name="CrateSpawner" instance=ExtResource( 1 )]

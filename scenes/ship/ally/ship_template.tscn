@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scripts/player/ship.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player/spawner_manager.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/shield.gd" type="Script" id=2]
-[ext_resource path="res://scripts/player/stats.gd" type="Script" id=3]
-[ext_resource path="res://scripts/player/spawner_manager.gd" type="Script" id=4]
+[ext_resource path="res://scripts/player/ship.gd" type="Script" id=3]
+[ext_resource path="res://scripts/player/stats.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -86,10 +86,10 @@ tracks/1/keys = {
 
 [node name="ShipTemplate" type="KinematicBody2D"]
 modulate = Color( 1, 1, 1, 0 )
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Stats" type="Node" parent="."]
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 invulnerability_timer_ref = NodePath("../Hitbox/InvulnerabilityTimer")
 
 [node name="BoostTimer" type="Timer" parent="Stats"]
@@ -123,7 +123,7 @@ one_shot = true
 [node name="Texture" type="Sprite" parent="."]
 
 [node name="SpawnerManager" type="Node2D" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 1 )
 stats_ref = NodePath("../Stats")
 
 [node name="SingleSpawner" type="Node2D" parent="SpawnerManager"]
