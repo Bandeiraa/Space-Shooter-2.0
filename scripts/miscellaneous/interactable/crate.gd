@@ -2,10 +2,10 @@ extends InteractableTemplate
 class_name Crate
 
 var items: Dictionary = {
-	"Red Gem": "res://scenes/interactable/gem/red_gem.tscn",
-	"Blue Gem": "res://scenes/interactable/gem/blue_gem.tscn",
-	"Purple Gem": "res://scenes/interactable/gem/purple_gem.tscn",
-	"Yellow Gem": "res://scenes/interactable/gem/yellow_gem.tscn"
+	"Red Gem": "res://scenes/item/gem/blue_gem.tscn",
+	"Blue Gem": "res://scenes/item/gem/blue_gem.tscn",
+	"Purple Gem": "res://scenes/item/gem/purple_gem.tscn",
+	"Yellow Gem": "res://scenes/item/gem/yellow_gem.tscn"
 }
 
 export(int) var health
@@ -27,6 +27,7 @@ func on_area_entered(area) -> void:
 	if area is AllyProjectile:
 		health -= area.damage
 		area.kill()
+		
 		if health <= 0:
 			spawn_item()
 			kill()

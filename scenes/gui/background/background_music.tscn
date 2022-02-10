@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/gui/background/background_music.gd" type="Script" id=1]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+volume_db = -40.0
+script = ExtResource( 1 )

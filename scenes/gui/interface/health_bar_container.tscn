@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/hud/texture_progress/health_bar/background.png" type="Texture" id=1]
+[ext_resource path="res://assets/hud/texture_progress/health_bar/bar.png" type="Texture" id=2]
+[ext_resource path="res://scripts/gui/interface/health_bar_container.gd" type="Script" id=3]
+
+[node name="HealthBarContainer" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BarBackground" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -108.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 32.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AuxHealthBar" type="TextureProgress" parent="BarBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -9.0
+margin_right = 40.0
+margin_bottom = 9.0
+value = 100.0
+texture_progress = ExtResource( 2 )
+tint_progress = Color( 0.827451, 0.654902, 0.247059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="BarBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -9.0
+margin_right = 40.0
+margin_bottom = 9.0
+value = 100.0
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

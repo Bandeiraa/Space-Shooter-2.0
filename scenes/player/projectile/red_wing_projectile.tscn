@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/player/template/projectile_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/player/projectile/ally_projectile.gd" type="Script" id=2]
+[ext_resource path="res://assets/player/shot/red_wing_projectile.png" type="Texture" id=3]
+[ext_resource path="res://scenes/player/projectile/misc_projectile/bomb_projectile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player/projectile/misc_projectile/ball_projectile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player/projectile/misc_projectile/bubble_projectile.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 8.5 )
+
+[node name="RedWingProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+speed = 7
+damage = 3
+direction = -1
+ball_scene = ExtResource( 5 )
+bomb_scene = ExtResource( 4 )
+bubble_scene = ExtResource( 6 )
+
+[node name="Collision" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource( 3 )
+
+[node name="Notifier" parent="." index="2"]
+position = Vector2( -1.19209e-07, 0 )
+scale = Vector2( 0.6, 0.85 )
