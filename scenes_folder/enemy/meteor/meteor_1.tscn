@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes_folder/template/enemy_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets_folder/enemy/meteor_list.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.6155
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "rotation"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="Meteor_1" instance=ExtResource( 1 )]
+speed = 2
+health = 200
+points = 10
+damage = 30
+type = "damage"
+
+[node name="EnemyTexture" parent="." index="0"]
+texture = ExtResource( 2 )
+hframes = 5
+
+[node name="EnemyCollision" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="EnemyNotifier" parent="." index="2"]
+position = Vector2( 0, 0.5 )
+scale = Vector2( 2.1, 1.95 )
+
+[node name="Animation" parent="." index="3"]
+autoplay = "rotation"
+anims/RESET = SubResource( 2 )
+anims/rotation = SubResource( 3 )

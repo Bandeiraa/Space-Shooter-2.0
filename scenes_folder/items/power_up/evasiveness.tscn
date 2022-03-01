@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes_folder/items/power_up/boost.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CollectableTemplate
+class_name PowerUp
+
+var buff_value: int
+var buff_duration: int
+
+export(int) var min_buff_value
+export(int) var max_buff_value
+
+export(int) var min_buff_duration
+export(int) var max_buff_duration
+
+export(String) var buff_type
+
+func _ready() -> void:
+	randomize()
+	buff_value = set_value(min_buff_value, max_buff_value)
+	buff_duration = set_value(min_buff_duration, max_buff_duration)
+	
+	
+func set_value(min_value: int, max_value: int) -> int:
+	return int(rand_range(min_value, max_value))
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 9.5 )
+
+[node name="Evasiveness" instance=ExtResource( 1 )]
+script = SubResource( 1 )
+min_buff_value = 3
+max_buff_value = 6
+buff_type = "evasiveness"
+
+[node name="CollectableTexture" parent="." index="0"]
+frame = 1
+
+[node name="CollectableCollision" parent="." index="1"]
+shape = SubResource( 2 )

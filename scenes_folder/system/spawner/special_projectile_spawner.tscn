@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes_folder/template/spawner_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes_folder/items/special_projectile/ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes_folder/items/special_projectile/bomb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes_folder/items/special_projectile/bubble.tscn" type="PackedScene" id=4]
+
+[node name="SpecialProjectileSpawner" instance=ExtResource( 1 )]
+min_spawn_time = 25.0
+max_spawn_time = 55.0
+object_list = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes_folder/enemy/meteor/meteor_1.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 17.0294
+
+[node name="Meteor_3" instance=ExtResource( 1 )]
+health = 150
+points = 8
+damage = 22
+type = "damage"
+
+[node name="EnemyTexture" parent="." index="0"]
+frame = 2
+
+[node name="EnemyCollision" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="EnemyNotifier" parent="." index="2"]
+position = Vector2( 0.500003, -1.63913e-06 )
+scale = Vector2( 1.55, 1.8 )

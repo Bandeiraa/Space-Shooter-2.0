@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes_folder/template/collectable_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts_folder/collectable/special_projectile.gd" type="Script" id=2]
+[ext_resource path="res://assets_folder/item/special_projectile_list.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 6.5 )
+
+[node name="Bomb" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+speed = 3
+type = "special_projectile"
+sp_buff = 10
+sp_name = "bomb_buff"
+
+[node name="CollectableTexture" parent="." index="0"]
+texture = ExtResource( 3 )
+hframes = 3
+frame = 1
+
+[node name="CollectableCollision" parent="." index="1"]
+position = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollectableNotifier" parent="." index="2"]
+position = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.75, 0.65 )

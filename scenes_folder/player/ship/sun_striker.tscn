@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets_folder/player/ship_list.png" type="Texture" id=1]
+[ext_resource path="res://scenes_folder/template/ship_template.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes_folder/player/projectile/sun_striker_projectile.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23, 22.5 )
+
+[node name="SunStriker" instance=ExtResource( 2 )]
+
+[node name="ShipTexture" parent="." index="0"]
+texture = ExtResource( 1 )
+frame = 4
+
+[node name="ShipCollision" parent="." index="1"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 1 )
+
+[node name="ShipProjectileSpawner" parent="." index="3"]
+base_damage = 12
+attack_cooldown = 0.5
+projectile_ref = ExtResource( 3 )
+
+[node name="Spawner" parent="ShipProjectileSpawner/SingleSpawner" index="0"]
+position = Vector2( 0, -34 )
+
+[node name="Spawner1" parent="ShipProjectileSpawner/MultiSpawner" index="0"]
+position = Vector2( -13, -34 )
+
+[node name="Spawner2" parent="ShipProjectileSpawner/MultiSpawner" index="1"]
+position = Vector2( 13, -34 )
+
+[node name="ShipStats" parent="." index="4"]
+max_health = 100
+max_energy = 120
+normal_speed = 4

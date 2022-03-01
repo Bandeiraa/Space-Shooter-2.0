@@ -1,0 +1,30 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes_folder/template/collectable_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts_folder/collectable/crate.gd" type="Script" id=2]
+[ext_resource path="res://assets_folder/item/crate_list.png" type="Texture" id=3]
+[ext_resource path="res://scenes_folder/items/gem/blue_gem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes_folder/items/gem/purple_gem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes_folder/items/gem/yellow_gem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes_folder/items/gem/orange_gem.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Crate" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+speed = 2
+type = "damage"
+damage = 5
+health = 10
+gem_list = [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ]
+
+[node name="CollectableTexture" parent="." index="0"]
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="CollectableCollision" parent="." index="1"]
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="on_area_entered"]

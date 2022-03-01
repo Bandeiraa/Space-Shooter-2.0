@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "ProjectileTemplate",
+"base": "Area2D",
 "class": "AllyProjectile",
 "language": "GDScript",
-"path": "res://scripts/player/projectile/ally_projectile.gd"
+"path": "res://scripts_folder/ship/projectile.gd"
 }, {
 "base": "ParallaxBackground",
 "class": "Background",
@@ -27,87 +27,62 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "BallProjectile",
 "language": "GDScript",
-"path": "res://scripts/player/projectile/ball_projectile.gd"
+"path": "res://scripts_folder/ship/ball.gd"
 }, {
 "base": "Area2D",
 "class": "BombProjectile",
 "language": "GDScript",
-"path": "res://scripts/player/projectile/bomb_projectile.gd"
+"path": "res://scripts_folder/ship/bomb.gd"
 }, {
 "base": "Area2D",
 "class": "BubbleProjectile",
 "language": "GDScript",
-"path": "res://scripts/player/projectile/bubble_projectile.gd"
-}, {
-"base": "InteractableTemplate",
-"class": "Crate",
-"language": "GDScript",
-"path": "res://scripts/miscellaneous/interactable/crate.gd"
+"path": "res://scripts_folder/ship/bubble.gd"
 }, {
 "base": "Area2D",
-"class": "EnemyTemplate",
+"class": "CollectableTemplate",
 "language": "GDScript",
-"path": "res://scripts/enemy/enemy_template.gd"
+"path": "res://scripts_folder/collectable/collectable.gd"
 }, {
-"base": "Sprite",
-"class": "ExplosionTemplate",
+"base": "CollectableTemplate",
+"class": "Crate",
 "language": "GDScript",
-"path": "res://scripts/effect/effect_template.gd"
+"path": "res://scripts_folder/collectable/crate.gd"
+}, {
+"base": "Area2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts_folder/enemy/enemy_template.gd"
 }, {
 "base": "Node2D",
 "class": "GameLevel",
 "language": "GDScript",
 "path": "res://scripts/management/game_level.gd"
 }, {
-"base": "InteractableTemplate",
+"base": "CollectableTemplate",
 "class": "Gem",
 "language": "GDScript",
-"path": "res://scripts/miscellaneous/interactable/gem.gd"
+"path": "res://scripts_folder/collectable/gem.gd"
 }, {
-"base": "Area2D",
-"class": "InteractableTemplate",
-"language": "GDScript",
-"path": "res://scripts/miscellaneous/template/interactable_template.gd"
-}, {
-"base": "EnemyTemplate",
-"class": "Meteor",
-"language": "GDScript",
-"path": "res://scripts/enemy/meteor.gd"
-}, {
-"base": "InteractableTemplate",
-"class": "Miscellaneous",
-"language": "GDScript",
-"path": "res://scripts/miscellaneous/interactable/miscellaneous.gd"
-}, {
-"base": "InteractableTemplate",
+"base": "CollectableTemplate",
 "class": "PowerUp",
 "language": "GDScript",
-"path": "res://scripts/miscellaneous/interactable/power_up.gd"
-}, {
-"base": "Area2D",
-"class": "ProjectileTemplate",
-"language": "GDScript",
-"path": "res://scripts/player/template/projectile_template.gd"
+"path": "res://scripts_folder/collectable/power_up.gd"
 }, {
 "base": "CanvasLayer",
 "class": "ScreenTransition",
 "language": "GDScript",
 "path": "res://scripts/management/screen_transition.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Area2D",
 "class": "Ship",
 "language": "GDScript",
-"path": "res://scripts/player/ship/ship.gd"
+"path": "res://scripts_folder/ship/ship.gd"
 }, {
-"base": "Node2D",
-"class": "ShipSpawnerManager",
+"base": "CollectableTemplate",
+"class": "SpecialProjectile",
 "language": "GDScript",
-"path": "res://scripts/player/ship/spawner_manager.gd"
-}, {
-"base": "Node",
-"class": "ShipStats",
-"language": "GDScript",
-"path": "res://scripts/player/ship/stats.gd"
+"path": "res://scripts_folder/collectable/special_projectile.gd"
 } ]
 _global_script_class_icons={
 "AllyProjectile": "",
@@ -116,20 +91,15 @@ _global_script_class_icons={
 "BallProjectile": "",
 "BombProjectile": "",
 "BubbleProjectile": "",
+"CollectableTemplate": "",
 "Crate": "",
-"EnemyTemplate": "",
-"ExplosionTemplate": "",
+"Enemy": "",
 "GameLevel": "",
 "Gem": "",
-"InteractableTemplate": "",
-"Meteor": "",
-"Miscellaneous": "",
 "PowerUp": "",
-"ProjectileTemplate": "",
 "ScreenTransition": "",
 "Ship": "",
-"ShipSpawnerManager": "",
-"ShipStats": ""
+"SpecialProjectile": ""
 }
 
 [application]
@@ -139,13 +109,13 @@ config/icon="res://icon.png"
 
 [autoload]
 
-BGM="*res://scenes/gui/background/background_music.tscn"
-Transition="*res://scenes/management/screen_transition.tscn"
+BGM="*res://scenes_folder/system/background/background_music.tscn"
+Transition="*res://scenes_folder/system/screen_transition.tscn"
 
 [display]
 
-window/size/width=640
-window/size/height=480
+window/size/width=1280
+window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -204,6 +174,14 @@ ultimate={
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="AllyShip"
+2d_physics/layer_2="AllyProjectile"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="EnemyProjectile"
+2d_physics/layer_5="Collectable"
 
 [physics]
 

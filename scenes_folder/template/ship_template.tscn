@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts_folder/ship/ship.gd" type="Script" id=1]
+[ext_resource path="res://scripts_folder/ship/stats.gd" type="Script" id=2]
+[ext_resource path="res://scripts_folder/ship/shield.gd" type="Script" id=3]
+[ext_resource path="res://assets_folder/player/shield_list.png" type="Texture" id=4]
+[ext_resource path="res://scripts_folder/ship/projectile_spawner.gd" type="Script" id=5]
+[ext_resource path="res://scenes_folder/player/special_projectile/ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes_folder/player/special_projectile/bomb.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes_folder/player/special_projectile/bubble.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "rotation"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="ShipTemplate" type="Area2D"]
+collision_mask = 28
+script = ExtResource( 1 )
+
+[node name="ShipTexture" type="Sprite" parent="."]
+hframes = 5
+
+[node name="ShipCollision" type="CollisionShape2D" parent="."]
+
+[node name="ShipShield" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+texture = ExtResource( 4 )
+hframes = 2
+script = ExtResource( 3 )
+stats_ref = NodePath("../ShipStats")
+
+[node name="ShieldAnimation" type="AnimationPlayer" parent="ShipShield"]
+autoplay = "rotation"
+anims/RESET = SubResource( 1 )
+anims/rotation = SubResource( 2 )
+
+[node name="ShipProjectileSpawner" type="Node2D" parent="."]
+script = ExtResource( 5 )
+stats_ref = NodePath("../ShipStats")
+ball_ref = ExtResource( 6 )
+bomb_ref = ExtResource( 7 )
+bubble_ref = ExtResource( 8 )
+
+[node name="SingleSpawner" type="Node2D" parent="ShipProjectileSpawner"]
+
+[node name="Spawner" type="Position2D" parent="ShipProjectileSpawner/SingleSpawner"]
+
+[node name="MultiSpawner" type="Node2D" parent="ShipProjectileSpawner"]
+visible = false
+
+[node name="Spawner1" type="Position2D" parent="ShipProjectileSpawner/MultiSpawner"]
+
+[node name="Spawner2" type="Position2D" parent="ShipProjectileSpawner/MultiSpawner"]
+
+[node name="AttackCooldown" type="Timer" parent="ShipProjectileSpawner"]
+one_shot = true
+
+[node name="ShipStats" type="Node" parent="."]
+script = ExtResource( 2 )
+projectile_spawner_ref = NodePath("../ShipProjectileSpawner")
+
+[node name="BoostTimer" type="Timer" parent="ShipStats"]
+one_shot = true
+
+[node name="EvasivenessTimer" type="Timer" parent="ShipStats"]
+one_shot = true
+
+[node name="PowerTimer" type="Timer" parent="ShipStats"]
+one_shot = true
+
+[connection signal="area_entered" from="." to="ShipStats" method="on_area_entered"]
+[connection signal="timeout" from="ShipProjectileSpawner/AttackCooldown" to="ShipProjectileSpawner" method="on_cooldown_finished"]
